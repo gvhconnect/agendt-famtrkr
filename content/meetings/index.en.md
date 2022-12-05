@@ -17,7 +17,7 @@ featuredImage: "featured-meeting-1.jpg"
 
 
 ---
-### Figure
+### Figu
 {{< figure src="https://d7okgpmgzkdc1.cloudfront.net/acct-01/user-02/IMG_1961.jpeg"  title="Test_image_2_Collection" >}}
 
 !(/images/featured-meeting-1.jpg "my meetings")
