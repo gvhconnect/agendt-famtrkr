@@ -8,7 +8,7 @@
 
 {{ $base := string (.Get "https://d7okgpmgzkdc1.cloudfront.net/")  }}
 {{ $path := print "/acct-01/user-02/" (.Get "src") }}
-{{ range (readDir $path) }}
+{{ range (readDir $path) $dir}}
 {{- $image := resources.Get (printf "%s/%s" $dir .Name) -}}
 {{- $imageurl := printf "%s/%s" $dir .Name -}}
 {{- $imagetitle := index (split .Name ".") 0 -}}
