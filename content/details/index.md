@@ -15,7 +15,7 @@ categories: []
 ---
 
 ### A different take....
-{{< figure src="https://d7okgpmgzkdc1.cloudfront.net/acct-01/user-02/IMG_1905.jpeg" title="Test_image_2_Collection" >}}
+{{ partial "test-HUGO-gallery" (dict "context" . "gallery_dir" "album") }}
 
 {{< mermaid >}}
 pie
