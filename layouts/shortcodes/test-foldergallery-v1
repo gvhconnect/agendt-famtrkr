@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <div class="gallery">
         {{ $base := string (.Get "https://d7okgpmgzkdc1.cloudfront.net/")  }}
-        {{ $path := print "/acct-01/user-02/data/object_list.json" (.Get "src") }}
+        {{ $path := print "acct-01/user-02/data/object_list.json" (.Get "src") }}
         {{ range (readDir $path) }}
           {{- $thumbext := "-thumb" }}
           {{- $isthumb := .Name | findRE ($thumbext | printf "%s\\.") }}<!-- is the current file a thumbnail image? -->
