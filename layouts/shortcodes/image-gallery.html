@@ -6,9 +6,9 @@
     .image-gallery li a img {width: 100%; display: block;}
   </style>
   
-  {{ $dir := string (.Get "https://d7okgpmgzkdc1.cloudfront.net/") }}
+  {{ $dir := getJSON "https://d7okgpmgzkdc1.cloudfront.net/acct-01/user-02/data/object_list.json") }}
   <ul class="image-gallery">
-  {{ range (readDir (print "acct-01/user-02/data/object_list.json" $dir)) }}
+  {{ range $dir)) }}
   {{- $image := resources.Get (printf "%s/%s" $dir .Name) -}}
   {{- $imageurl := printf "%s/%s" $dir .Name -}}
   {{- $imagetitle := index (split .Name ".") 0 -}}
