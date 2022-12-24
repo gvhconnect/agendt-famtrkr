@@ -10,7 +10,7 @@
 // List the objects in the specified bucket and prefix
 result, err := svc.ListObjectsV2(&s3.ListObjectsV2Input{
     Bucket:  aws.String("0-go4wd-dam"),
-    Prefix:  aws.String("acct-01/user-02/"),
+    Prefix:  aws.String("acct-01/user-02/")
 })
 
 if err != nil {
