@@ -8,24 +8,24 @@
 
 
 // List the objects in the specified bucket and prefix
-result, err := svc.ListObjectsV2(&s3.ListObjectsV2Input{
+//result, err := svc.ListObjectsV2(&s3.ListObjectsV2Input{
     Bucket:  aws.String("0-go4wd-dam"),
     Prefix:  aws.String("acct-01/user-02/")
-})
+// })
 
-if err != nil {
-    fmt.Println("Error", err)
-    return
-}
+// if err != nil {
+//    fmt.Println("Error", err)
+//    return
+// }
 
 
 
-var imageFiles []string
-for _, object := range result.Contents {
-    imageFiles = append(imageFiles, *object.Key)    
+//var imageFiles []string
+//for _, object := range result.Contents {
+//    imageFiles = append(imageFiles, *object.Key)    
 
-  
-  {{ $dir := object }}
+  gallery_dir := Bucket/Prefix
+  {{ $dir := string .gallery_dir }}
   <ul class="image-gallery">
   {{ range (readDir (print "/static")) $dir }}
   {{- $image := resources.Get (printf "%s/%s" $dir .objects) -}}
