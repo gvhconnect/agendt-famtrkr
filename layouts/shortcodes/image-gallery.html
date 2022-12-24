@@ -23,7 +23,7 @@ for _, object := range result.Contents {
     imageFiles = append(imageFiles, *object.Key)    
 
   
-  {{ $dir := string .imageFiles }}
+  {{ $dir := imageFiles }}
   <ul class="image-gallery">
   {{ range (readDir (print "/static")) $dir }}
   {{- $image := resources.Get (printf "%s/%s" $dir .objects) -}}
