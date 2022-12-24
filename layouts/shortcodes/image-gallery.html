@@ -18,12 +18,14 @@ if err != nil {
     return
 }
 
+
+
 var imageFiles []string
 for _, object := range result.Contents {
     imageFiles = append(imageFiles, *object.Key)    
 
   
-  {{ $dir := imageFiles }}
+  {{ $dir := object }}
   <ul class="image-gallery">
   {{ range (readDir (print "/static")) $dir }}
   {{- $image := resources.Get (printf "%s/%s" $dir .objects) -}}
