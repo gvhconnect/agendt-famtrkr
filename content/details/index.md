@@ -15,7 +15,8 @@ categories: []
 ---
 
 ### A different take....
-{{ partial "image-gallery" (dict "context" . "gallery_dir" "album") }}
+# {{ partial "image-gallery" (dict "context" . "gallery_dir" "album") }}
+{{< image-gallery gallery_dir="album" >}}
 
 {{< mermaid >}}
 pie
