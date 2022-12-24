@@ -5,8 +5,25 @@
     .image-gallery li a span {display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; padding: 3px 0;}
     .image-gallery li a img {width: 100%; display: block;}
   </style>
+
+
+// List the objects in the specified bucket and prefix
+result, err := svc.ListObjectsV2(&s3.ListObjectsV2Input{
+    Bucket:  aws.String("0-go4wd-dam"),
+    Prefix:  aws.String("acct-01/user-02/"),
+})
+
+if err != nil {
+    fmt.Println("Error", err)
+    return
+}
+
+var imageFiles []string
+for _, object := range result.Contents {
+    imageFiles = append(imageFiles, *object.Key)    
+
   
-  {{ $dir := getJSON "https://d7okgpmgzkdc1.cloudfront.net/acct-01/user-02/object_list_filtered.json" }}
+  {{ $dir := string .imageFiles }}
   <ul class="image-gallery">
   {{ range (readDir (print "/static")) $dir }}
   {{- $image := resources.Get (printf "%s/%s" $dir .objects) -}}
