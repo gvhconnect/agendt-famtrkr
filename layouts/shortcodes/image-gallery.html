@@ -24,8 +24,8 @@
 //for _, object := range result.Contents {
 //    imageFiles = append(imageFiles, *object.Key)    
 
-  gallery_dir := s3.list_objects(Bucket= '0-go4wd-dam', Prefix = 'acct-01/user-02/')['Contents']
-  {{ $dir := string .gallery_dir }}
+//  gallery_dir := s3.list_objects(Bucket= '0-go4wd-dam', Prefix = 'acct-01/user-02/')['Contents']
+  {{ $dir := s3.list_objects(Bucket= '0-go4wd-dam', Prefix = 'acct-01/user-02/')['Contents'] }}
   <ul class="image-gallery">
   {{ range (readDir (print "/static")) $dir }}
   {{- $image := resources.Get (printf "%s/%s" $dir .objects) -}}
