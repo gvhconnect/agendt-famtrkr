@@ -7,24 +7,6 @@
   </style>
 
 
-// List the objects in the specified bucket and prefix
-//result, err := svc.ListObjectsV2(&s3.ListObjectsV2Input{
-//    Bucket:  aws.String("0-go4wd-dam"),
-//    Prefix:  aws.String("acct-01/user-02/")
-// })
-
-// if err != nil {
-//    fmt.Println("Error", err)
-//    return
-// }
-
-
-
-//var imageFiles []string
-//for _, object := range result.Contents {
-//    imageFiles = append(imageFiles, *object.Key)    
-
-//  gallery_dir := s3.list_objects(Bucket= '0-go4wd-dam', Prefix = 'acct-01/user-02/')['Contents']
  {{ $dir :=  getJSON "https://d7okgpmgzkdc1.cloudfront.net/acct-01/user-02/object_list_filtered.json"  }}
   <ul class="image-gallery">
   {{ range (readDir (print "/static")) $dir }}
