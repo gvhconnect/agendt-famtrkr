@@ -9,7 +9,7 @@
 
  {{ $dir :=  getJSON "https://d7okgpmgzkdc1.cloudfront.net/acct-01/user-02/object_list_filtered.json"  }}
   <ul class="image-gallery">
-  {{ range (readDir (print "/static")) $dir }}
+      {{ range $dir.objects }}
   {{- $image := resources.Get (printf "%s/%s" $dir .objects) -}}
   {{- $imageurl := printf "%s/%s" $dir .objects -}}
   {{- $imagetitle := index (split .objects ".") 0 -}}
